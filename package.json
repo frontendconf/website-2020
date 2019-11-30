@@ -16,9 +16,12 @@
     "graphql-tag": "2.10.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "latest",
+    "postcss": "^7.0.23",
+    "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "styled-jsx-plugin-postcss": "^2.0.1"
   },
   "license": "ISC"
 }
