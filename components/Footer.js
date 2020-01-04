@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import config from '../config'
-import { mq } from '../lib/styles'
 
 export const FOOTER_QUERY = gql`
   query footer {
@@ -56,17 +55,17 @@ export const FOOTER_QUERY = gql`
 function FooterMenu(props) {
   return (
     <div className={`menu menu--${props.id}`}>
-      <ul>
+      <ul className="menu__list">
         {props.items.map((item, i) => {
           const id = item.sys ? item.sys.id : i
 
           return item.slug ? (
-            <li key={id}>
+            <li className="menu__list-item" key={id}>
               <Link
                 href={{ pathname: '/', query: { slug: item.slug } }}
                 as={`/${item.slug}`}
               >
-                <a>{item.title}</a>
+                <a className="menu__link">{item.title}</a>
               </Link>
             </li>
           ) : (
@@ -111,11 +110,11 @@ const Footer = () => {
 
   return (
     <footer className="footer">
-      <div>
-        <div>
-          <div className="xs-12">
-            <div>
-              <div className="col col--newsletter xs-12 md-5 lg-3">
+      <div className="container">
+        <div className="row">
+          <div className="col xs-12">
+            <div className="row">
+              <div className="col footer__newsletter-col xs-12 md-5 lg-3">
                 <div className="footer__newsletter">
                   <div className="newsletter">
                     <h3>{newsletterTitle}</h3>
@@ -144,11 +143,11 @@ const Footer = () => {
                   {/* <SocialIcons id="social" items={socialMediaItems} /> */}
                 </div>
               </div>
-              <div className="col col--ctas xs-12 md-12 lg-2">
-                <div className="ctas">
-                  <div>
+              <div className="col footer__ctas-col xs-12 md-12 lg-2">
+                <div className="footer__ctas ctas">
+                  <div className="row">
                     {ctaItems.map(item => (
-                      <div className="xs-6 md-4 lg-12" key={item.slug}>
+                      <div className="col xs-6 md-4 lg-12" key={item.slug}>
                         <Link
                           href={{
                             pathname: '/',
@@ -163,83 +162,22 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className="col col--menus xs-12 md-7 lg-6 offset-lg-1">
-                <div className="menus">
+              <div className="col footer__menus-col xs-12 md-7 lg-6 offset-lg-1">
+                <div className="footer__menus">
                   <FooterMenu id="main" items={menuItems} />
                 </div>
               </div>
             </div>
 
             <div className="copyright">
-              <p>{copyright}</p>
+              <p className="copyright__text">{copyright}</p>
 
               <FooterMenu id="meta" items={menuMetaItems} />
             </div>
           </div>
         </div>
       </div>
-      <style jsx>{`
-        .footer {
-          position: relative;
-          padding: 35px 0;
-          background-color: #1e1732;
-          z-index: 2;
-
-          @media (${mq('md')}) {
-            padding: 54px 0 50px;
-
-            & .col--ctas {
-              order: 1;
-            }
-            & .col-menus {
-              order: 2;
-            }
-            & .col-newsletter {
-              order: 3;
-            }
-          }
-        }
-
-        .newsletter,
-        .ctas,
-        .menus {
-          margin: 0 0 50px;
-        }
-
-        .ctas {
-          & a {
-            /* @include button; */
-
-            @media (${mq('md')}) {
-              margin-bottom: 10px;
-            }
-          }
-        }
-
-        .copyright {
-          display: flex;
-          justify-content: space-between;
-
-          & p {
-            font-size: 12px;
-            letter-spacing: 0.9px;
-            text-align: center;
-            color: #b3b3bc;
-            opacity: 0.5;
-            margin: 0;
-            text-transform: uppercase;
-            line-height: 1.1;
-          }
-
-          @media (${mq('md')}) {
-            justify-content: center;
-
-            & p {
-              margin-right: 40px;
-            }
-          }
-        }
-      `}</style>
+      <style jsx>{``}</style>
     </footer>
   )
 }
