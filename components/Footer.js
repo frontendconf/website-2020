@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import config from '../config'
-import { mqs } from '../lib/styles'
+import { mq } from '../lib/styles'
 
 export const FOOTER_QUERY = gql`
   query footer {
@@ -179,15 +179,13 @@ const Footer = () => {
         </div>
       </div>
       <style jsx>{`
-        ${mqs()};
-
         .footer {
           position: relative;
           padding: 35px 0;
           background-color: #1e1732;
           z-index: 2;
 
-          @media (--md) {
+          @media (${mq('md')}) {
             padding: 54px 0 50px;
 
             & .col--ctas {
@@ -212,7 +210,7 @@ const Footer = () => {
           & a {
             /* @include button; */
 
-            @media (--md) {
+            @media (${mq('md')}) {
               margin-bottom: 10px;
             }
           }
@@ -233,7 +231,7 @@ const Footer = () => {
             line-height: 1.1;
           }
 
-          @media (--md) {
+          @media (${mq('md')}) {
             justify-content: center;
 
             & p {

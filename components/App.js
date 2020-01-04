@@ -1,12 +1,10 @@
-import { mqs, colors } from '../lib/styles'
+import { mq, colors } from '../lib/styles'
 
 export default ({ children }) => (
   <main>
     {children}
 
     <style jsx global>{`
-      ${mqs()};
-
       @font-face {
         font-family: Code-Pro-LC;
         src: url('/static/fonts/38F325_1_unhinted_0.woff2') format('woff2'),
@@ -44,7 +42,7 @@ export default ({ children }) => (
         font-weight: normal;
         margin: 0 0 35px;
 
-        @media (--md) {
+        @media (${mq('md')}) {
           font-size: 42px;
         }
       }
@@ -54,7 +52,7 @@ export default ({ children }) => (
         font-weight: bold;
         margin: 0 0 18px 0;
 
-        @media (--md) {
+        @media (${mq('md')}) {
           font-size: 26px;
         }
       }
@@ -70,7 +68,7 @@ export default ({ children }) => (
         letter-spacing: -0.1px;
         margin: 0 0 1em;
 
-        @media (--md) {
+        @media (${mq('md')}) {
           font-size: 18px;
           letter-spacing: -0.2px;
         }

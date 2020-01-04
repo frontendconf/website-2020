@@ -5,7 +5,7 @@ import { useQuery } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 import ErrorMessage from './ErrorMessage'
 import { renderRichText } from '../lib/contentful'
-import { mqs, colors, transition, textGradient } from '../lib/styles'
+import { mq, colors, transition, textGradient } from '../lib/styles'
 
 export const HEADER_QUERY = gql`
   query header {
@@ -153,8 +153,6 @@ const Header = ({ router: { query } }) => {
         </div>
       </div>
       <style jsx>{`
-        ${mqs()};
-
         .header {
           background: ${colors['dark-blue']};
           /* position: absolute; */
@@ -164,11 +162,11 @@ const Header = ({ router: { query } }) => {
           padding: 18px 0;
           z-index: 2;
 
-          @media (--md) {
+          @media (${mq('md')}) {
             padding: 32px 0;
           }
 
-          @media (--lg) {
+          @media (${mq('lg')}) {
             padding: 44px 0;
           }
         }
@@ -224,7 +222,7 @@ const Header = ({ router: { query } }) => {
             opacity: 0.8;
           }
 
-          @media (--md) {
+          @media (${mq('md')}) {
             & img {
               height: 63px;
               width: 63px;
@@ -289,17 +287,17 @@ const Header = ({ router: { query } }) => {
             color: white;
           }
 
-          @media (--sm) {
+          @media (${mq('sm')}) {
             padding-left: 89px;
           }
 
-          @media (--md) {
+          @media (${mq('md')}) {
             padding-top: 150px;
             padding-bottom: 80px;
             padding-left: 118px;
           }
 
-          @media (--lg) {
+          @media (${mq('lg')}) {
             position: static;
             flex: 0 0 auto;
             margin-right: 20px;
@@ -323,7 +321,7 @@ const Header = ({ router: { query } }) => {
             }
           }
 
-          @media (--xl) {
+          @media (${mq('xl')}) {
             margin-right: 40px;
 
             & li {
@@ -382,7 +380,7 @@ const Header = ({ router: { query } }) => {
             opacity: 1;
           }
 
-          @media (--xl) {
+          @media (${mq('xl')}) {
             padding: 14px 37px 11px;
           }
         }
@@ -397,11 +395,11 @@ const Header = ({ router: { query } }) => {
           padding: 0;
           margin-left: 16px;
 
-          @media (--rg) {
+          @media (${mq('rg')}) {
             margin-left: 30px;
           }
 
-          @media (--lg) {
+          @media (${mq('lg')}) {
             display: none;
           }
         }
