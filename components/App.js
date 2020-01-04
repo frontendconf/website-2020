@@ -1,5 +1,5 @@
 export default ({ children }) => (
-  <main>
+  <div>
     {children}
 
     <style jsx global>{`
@@ -3471,5 +3471,5 @@ export default ({ children }) => (
         overflow: hidden;
       }
     `}</style>
-  </main>
+  </div>
 )
