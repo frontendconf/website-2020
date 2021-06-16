@@ -17,7 +17,7 @@
     "graphql-tag": "2.10.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "latest",
-    "postcss": "^7.0.23",
+    "postcss": "^7.0.36",
     "postcss-preset-env": "^6.7.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
